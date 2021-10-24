@@ -1,0 +1,24 @@
+class Stack:
+    def   __init__(self):
+        self.items = []
+ 
+    def empty(self):
+        return self.items == []
+ 
+    def push(self, data):
+        self.items.append(data)
+ 
+    def pop(self):
+        return self.items.pop()
+stk = Stack()
+text = input('Enter a string: ')
+for ch in text:
+    stk.push(ch)
+    rev_text = ''
+while not stk.empty():
+    rev_text = rev_text + stk.pop()
+ 
+if text == rev_text:
+    print('The string is palindrome.')
+else:
+    print('The string is not palindrome.')
