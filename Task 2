@@ -1,0 +1,27 @@
+from collections import deque
+eq = input("Enter expression: ")
+stack = deque()
+result = "Expression is unbalance:"
+counter = 0
+for i in eq :
+    if (i == '(' or i == '{' or i == '['):
+        stack.append(i)
+        counter = counter + 1
+    elif (i == ')' or i == '}' or i == ']'):
+        if (len(stack) != 0):
+            if (i == ')'):
+                if(stack[-1] == '('):
+                    counter = counter - 1
+            if (i == '}'):
+                if (stack[-1] == '{'):
+                    counter = counter - 1
+            if (i == ']'):
+                if (stack[-1] == '['):
+                    counter = counter - 1
+            stack.pop()
+        else:
+            result = "Expression is unbalance!"
+            
+if (counter != 0):
+    result = "Expression is unbalance:"
+print (result)
